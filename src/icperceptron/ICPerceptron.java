@@ -16,6 +16,10 @@ public class ICPerceptron {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Rede rede = new Rede();
+        rede.iniciarRede();
+        rede.treinarRede();
+        rede.testarRede();
     }
     
 }

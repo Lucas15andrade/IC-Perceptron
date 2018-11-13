@@ -25,12 +25,42 @@ public class Rede {
     public void iniciarRede(){
         this.qtdAtributos = this.padroes[0].length;
         this.qtdPadroes = this.padroes[0].length;
-        
+        System.out.println("Quantidade de atributos: "+qtdAtributos);
         mcp = new Neuronio(qtdAtributos);
+        
+        this.saidaDesejada = new int[qtdAtributos];
+        
+        for (int i = 0; i < qtdAtributos; i++) {
+            saidaDesejada[i] = scan.nextInt();
+        }
         
     }
     
     public void treinarRede(){
+        
+        int erroTotal = 0;
+        
+        do{
+            
+            for(int x = 0; x < this.qtdAtributos; x++){
+                //for(int y = 0; y < this.qtdPadroes; y++){
+                    System.out.println("Digite uma entrada para a posicão: "+ x);
+                    mcp.setEntradas(saidaDesejada[x],scan.nextInt());
+                    mcp.calculaSaida();
+                    System.out.println("Saída desejada");
+                    mcp.setErro(scan.nextInt());
+                    
+                    if(mcp.getE() > 0){
+                        mcp.atualizaPeso();
+                        erroTotal += mcp.getE();
+                    }
+                //}
+            }
+            
+        }while(erroTotal == 0);
+    }
+    
+    public void testarRede(){
         
     }
 }
