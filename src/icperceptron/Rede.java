@@ -39,13 +39,13 @@ public class Rede {
     public void treinarRede(){
         
         int erroTotal = 0;
-        
+        int cont = 0;
         do{
-            
+            cont++;
             for(int x = 0; x < this.qtdAtributos; x++){
                 //for(int y = 0; y < this.qtdPadroes; y++){
                     System.out.println("Digite uma entrada para a posicão: "+ x);
-                    mcp.setEntradas(saidaDesejada[x],scan.nextInt());
+                    mcp.setEntradas(padroes[cont][x],scan.nextInt());
                     mcp.calculaSaida();
                     System.out.println("Saída desejada");
                     mcp.setErro(scan.nextInt());
